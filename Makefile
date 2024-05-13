@@ -16,8 +16,8 @@ build: ## Build the Docker image. --> FIXME: add a working command
 	docker build --tag $(IMAGE_NAME) .
 
 .PHONY: run
-run: ## Run the Docker container. --> FIXME: add a working command
-	docker run --rm --name $(CONTAINER_NAME) $(IMAGE_NAME)
+run: ## Run the Docker container. --> FIXME: run in the background, add port mapping
+	docker run --rm -d -p 8000:8080 --name $(CONTAINER_NAME) $(IMAGE_NAME)
 
 .PHONY: clean
 clean: ## Remove the Docker container and image. --> FIXME: add a working command
