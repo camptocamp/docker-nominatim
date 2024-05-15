@@ -38,7 +38,8 @@ RUN wget -O ${NOMINATIM_TAR} https://nominatim.org/release/Nominatim-4.4.0.tar.b
 
 WORKDIR /nominatim/data
 # FIXME --no-check-certificate is this needed? -> this is probably neede in the DB so do not down load it here
-RUN wget -O country_osm_grid.sql.gz https://nominatim.org/data/country_grid.sql.gz --no-check-certificate
+# what is this file for?
+# RUN wget -O country_osm_grid.sql.gz https://nominatim.org/data/country_grid.sql.gz --no-check-certificate
 
 # build nominatim
 WORKDIR /nominatim/build
@@ -48,6 +49,8 @@ RUN cmake /nominatim/Nominatim-${NOMINATIM_VERSION} \
     && make \
     && make install
 
+# TODO add environment variables to access the DB
+
 # TODO clean up
     # apt-get clean \
     # rm -rf /var/lib/apt/lists/
@@ -56,9 +59,15 @@ EXPOSE 8080
 
 # cd /usr/local/lib/nominatim/lib-python
 # gunicorn -w 4 -k uvicorn.workers.UvicornWorker --bind 127.0.0.1:8080 "nominatim.server.falcon.server:run_wsgi()"
-WORKDIR /usr/local/lib/nominatim/lib-python
-CMD exec gunicorn -w 4 -k uvicorn.workers.UvicornWorker --bind 127.0.0.1:8080 "nominatim.server.falcon.server:run_wsgi()"
-
+# WORKDIR /usr/local/lib/nominatim/lib-python
+# CMD exec gunicorn -w 4 -k uvicorn.workers.UvicornWorker --bind 127.0.0.1:8080 "nominatim.server.falcon.server:run_wsgi()"
 
 # TODO remove/replace this. It is just for dev - building and testing
-# ENTRYPOINT ["tail", "-f", "/dev/null"]
+
+# TODO:
+# - add a volumne for the data import
+# - load the data into the DB
+# - test the DB
+
+# ENTRYPOINT [ "nominatim serve --server 0.0.0.0:8080" ]
+ENTRYPOINT ["tail", "-f", "/dev/null"]

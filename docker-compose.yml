@@ -1,0 +1,38 @@
+networks:
+  nominatim:
+    driver: bridge
+
+services:
+  db:
+    image: postgis/postgis:15-3.4-alpine
+    volumes:
+      - "./resources/init-scripts:/docker-entrypoint-initdb.d:ro"
+      - "./resources/data/.data:/var/lib/postgresql/data:rw"
+    environment:
+      LANG: 'en_US.utf8'
+      LC_COLLATE: 'en_US.utf8'
+      LC_CTYPE: 'en_US.utf8'
+    env_file: .env
+    ports:
+      - ${PGPORT}:5432
+    #healthcheck: TODO
+    #  test: ["CMD-SHELL", "pg_isready -U postgres"]
+    #  interval: 10s
+    #  timeout: 5s
+    #  retries: 5
+    networks:
+      - nominatim
+
+  nominatim:
+    image: nominatim:latest
+    build:
+      context: .
+    volumes:
+      - ./resources/osmdata:/nominatim/data:ro
+    depends_on:
+      - db
+    env_file: .env
+    networks:
+      - nominatim
+    ports:
+      - 8080:8080
