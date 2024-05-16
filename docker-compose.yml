@@ -24,7 +24,7 @@ services:
       - nominatim
 
   nominatim:
-    image: nominatim:latest
+    image: camptocamp/nominatim:latest
     build:
       context: .
     volumes:
@@ -34,5 +34,9 @@ services:
     env_file: .env
     networks:
       - nominatim
+    command:
+      - /bin/sh
+      - -c
+      - "nominatim serve --server 0.0.0.0:8080"
     ports:
       - 8080:8080

@@ -32,8 +32,8 @@ RUN python3 -m pip install -r requirements.txt
 WORKDIR /nominatim
 
 # TODO make shure that the URL is available
-# FIXME --no-check-certificate is this needed?
-RUN wget -O ${NOMINATIM_TAR} https://nominatim.org/release/Nominatim-4.4.0.tar.bz2 --no-check-certificate \
+# FIXME --no-check-certificate is this needed? What is done in other imaes? perhaps add a certificate!
+RUN wget -O ${NOMINATIM_TAR} https://nominatim.org/release/${NOMINATIM_TAR} --no-check-certificate \
     && tar xf ${NOMINATIM_TAR}
 
 WORKDIR /nominatim/data
@@ -68,6 +68,6 @@ EXPOSE 8080
 # - add a volumne for the data import
 # - load the data into the DB
 # - test the DB
-
+COPY entrypoint.sh /usr/bin/entrypoint.sh
 # ENTRYPOINT [ "nominatim serve --server 0.0.0.0:8080" ]
-ENTRYPOINT ["tail", "-f", "/dev/null"]
+ENTRYPOINT ["/usr/bin/entrypoint.sh"]
