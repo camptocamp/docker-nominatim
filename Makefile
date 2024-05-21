@@ -12,14 +12,14 @@ help: ## Display this help message
 		awk 'BEGIN {FS = ":.*?## "}; {printf "	%-20s%s\n", $$1, $$2}'
 
 .PHONY: build
-build: ## Build the Docker image. --> FIXME: add a working command
+build: ## Build the Docker image.
 	docker build --tag $(IMAGE_NAME) .
 
 .PHONY: run
-run: ## Run the Docker container. --> FIXME: run in the background, add port mapping
+run: ## Run the Docker container.
 	docker run --rm -d -p 8000:8080 --name $(CONTAINER_NAME) $(IMAGE_NAME)
 
 .PHONY: clean
-clean: ## Remove the Docker container and image. --> FIXME: add a working command
+clean: ## Remove the Docker container and image.
 	docker rm --force $(CONTAINER_NAME)
 	docker rmi $(IMAGE_NAME)

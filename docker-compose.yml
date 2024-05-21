@@ -34,9 +34,14 @@ services:
     env_file: .env
     networks:
       - nominatim
+    # command:
+    #   - /bin/sh
+    #   - -c
+    #   - "nominatim serve --server 0.0.0.0:8080"
+    working_dir: /usr/local/lib/nominatim/lib-python
     command:
       - /bin/sh
       - -c
-      - "nominatim serve --server 0.0.0.0:8080"
+      - "gunicorn -w 4 -k uvicorn.workers.UvicornWorker --log-level 'debug' --access-logfile '-' --error-logfile '-' --bind 0.0.0.0:8080 'nominatim.server.falcon.server:run_wsgi()'"
     ports:
       - 8080:8080
