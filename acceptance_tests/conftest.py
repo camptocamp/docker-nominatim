@@ -16,5 +16,5 @@ def connection():
     """
     Fixture that returns a connection to a running batch container.
     """
-    utils.wait_url(BASE_URL)
+    utils.wait_url(BASE_URL + "/status", timeout=30)
     return Connection(BASE_URL, "http://localhost:8080")

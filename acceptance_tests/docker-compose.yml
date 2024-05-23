@@ -1,7 +1,3 @@
-networks:
-    nominatim:
-        driver: bridge
-
 services:
     db:
         image: postgis/postgis:15-3.4-alpine
@@ -14,13 +10,11 @@ services:
         env_file: .env
         ports:
             - ${PGPORT}:5432
-        #healthcheck: TODO
-        #  test: ["CMD-SHELL", "pg_isready -U postgres"]
-        #  interval: 10s
-        #  timeout: 5s
-        #  retries: 5
-        networks:
-            - nominatim
+        healthcheck:
+            test: ['CMD-SHELL', 'pg_isready -U postgres']
+            interval: 10s
+            timeout: 5s
+            retries: 5
 
     nominatim:
         image: camptocamp/nominatim:${IMAGE_TAG}
@@ -29,8 +23,6 @@ services:
         depends_on:
             - db
         env_file: .env
-        networks:
-            - nominatim
         # command:
         #   - /bin/sh
         #   - -c
@@ -47,3 +39,5 @@ services:
         build: .
         environment:
             BASE_URL: 'http://nominatim:8080/'
+        depends_on:
+            - nominatim
