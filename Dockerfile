@@ -3,7 +3,7 @@
 
 FROM ubuntu:jammy AS build
 
-# avoid interactiv installation for tzdata
+# avoid interactive installation for tzdata
 ENV DEBIAN_FRONTEND=noninteractive
 
 ENV NOMINATIM_VERSION=4.4.0
@@ -29,7 +29,7 @@ WORKDIR /tmp
 COPY requirements.txt ./
 RUN python3 -m pip install -r requirements.txt
 
-# get everithing for nominatim
+# get everything for nominatim
 WORKDIR /nominatim
 
 # FIXME --no-check-certificate is this needed? What is done in other imaes? perhaps add a certificate!
@@ -38,7 +38,7 @@ RUN wget -O ${NOMINATIM_TAR} https://nominatim.org/release/${NOMINATIM_TAR} --no
 
 WORKDIR /nominatim/data
 
-# FIXME this is probably neede in the DB so do not down load it here
+# FIXME this is probably needed in the DB so do not down load it here
 # what is this file for?
 # RUN wget -O country_osm_grid.sql.gz https://nominatim.org/data/country_grid.sql.gz --no-check-certificate
 

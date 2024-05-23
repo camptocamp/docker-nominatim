@@ -1,5 +1,5 @@
 #!/bin/sh
 
 
-# this is the last line of the file
+# just execute the command
 exec "$@"

@@ -1,0 +1,16 @@
+# yaml-language-server: $schema=https://raw.githubusercontent.com/camptocamp/c2cciutils/1.6.18/c2cciutils/schema.json
+
+version:
+  branch_to_version_re:
+    - from: master
+      to: latest
+
+publish:
+  pypi:
+    packages: []
+  docker:
+    dispatch: {}
+    images:
+      - name: camptocamp/nominatim
+        tags:
+          - '{version}'

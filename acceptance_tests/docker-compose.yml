@@ -1,0 +1,46 @@
+networks:
+    nominatim:
+        driver: bridge
+
+services:
+    db:
+        image: postgis/postgis:15-3.4-alpine
+        volumes:
+            - './resources/init-scripts:/docker-entrypoint-initdb.d:ro'
+        environment:
+            LANG: 'en_US.utf8'
+            LC_COLLATE: 'en_US.utf8'
+            LC_CTYPE: 'en_US.utf8'
+        env_file: .env
+        ports:
+            - ${PGPORT}:5432
+        #healthcheck: TODO
+        #  test: ["CMD-SHELL", "pg_isready -U postgres"]
+        #  interval: 10s
+        #  timeout: 5s
+        #  retries: 5
+        networks:
+            - nominatim
+
+    nominatim:
+        image: camptocamp/nominatim:${IMAGE_TAG}
+        build:
+            context: .
+        volumes:
+            - ./resources/osmdata:/nominatim/data:ro
+        depends_on:
+            - db
+        env_file: .env
+        networks:
+            - nominatim
+        # command:
+        #   - /bin/sh
+        #   - -c
+        #   - "nominatim serve --server 0.0.0.0:8080"
+        working_dir: /usr/local/lib/nominatim/lib-python
+        command:
+            - /bin/sh
+            - -c
+            - "gunicorn -w 4 -k uvicorn.workers.UvicornWorker --log-level 'debug' --access-logfile '-' --error-logfile '-' --bind 0.0.0.0:8080 'nominatim.server.falcon.server:run_wsgi()'"
+        ports:
+            - 8080:8080
