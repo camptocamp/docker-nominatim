@@ -24,8 +24,6 @@ services:
 
     nominatim:
         image: camptocamp/nominatim:${IMAGE_TAG}
-        build:
-            context: .
         volumes:
             - ./resources/osmdata:/nominatim/data:ro
         depends_on:
@@ -44,3 +42,8 @@ services:
             - "gunicorn -w 4 -k uvicorn.workers.UvicornWorker --log-level 'debug' --access-logfile '-' --error-logfile '-' --bind 0.0.0.0:8080 'nominatim.server.falcon.server:run_wsgi()'"
         ports:
             - 8080:8080
+
+    acceptance:
+        build: .
+        environment:
+            BASE_URL: 'http://nominatim:8080/'
