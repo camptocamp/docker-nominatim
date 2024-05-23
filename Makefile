@@ -23,4 +23,4 @@ run: ## Run the Docker container.
 .PHONY: clean
 clean: ## Remove the Docker container and image.
 	docker rm --force $(CONTAINER_NAME)
-	docker rmi $(IMAGE_NAME)
+	docker rmi $(IMAGE_NAME):$(IMAGE_TAG)
