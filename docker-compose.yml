@@ -7,7 +7,6 @@ services:
     image: postgis/postgis:15-3.4-alpine
     volumes:
       - "./resources/init-scripts:/docker-entrypoint-initdb.d:ro"
-      - "./resources/data/.data:/var/lib/postgresql/data:rw"
     environment:
       LANG: 'en_US.utf8'
       LC_COLLATE: 'en_US.utf8'
