@@ -18,7 +18,7 @@ build: ## Build the Docker image.
 
 .PHONY: run
 run: ## Run the Docker container.
-	docker run --rm -d -p 8000:8080 --name $(CONTAINER_NAME) $(IMAGE_NAME)
+	docker run --rm -d -p 8000:8080 --name $(CONTAINER_NAME) $(IMAGE_NAME):$(IMAGE_TAG)
 
 .PHONY: clean
 clean: ## Remove the Docker container and image.
