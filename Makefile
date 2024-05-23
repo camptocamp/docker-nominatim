@@ -1,7 +1,8 @@
 ## TODO this is just a rudimentary sceleton with a couple of commands that need to be implemented propery
 
-IMAGE_NAME = camptocamp/nominatim
-CONTAINER_NAME = nominatim
+IMAGE_NAME ?= camptocamp/nominatim
+IMAGE_TAG ?= latest
+CONTAINER_NAME ?= nominatim
 
 .PHONY: help
 help: ## Display this help message
