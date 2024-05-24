@@ -86,7 +86,8 @@ RUN --mount=type=cache,target=/var/cache,sharing=locked \
         libboost-system${BOOST_VERSION} \
         libboost-filesystem${BOOST_VERSION} \
     && apt-get remove --assume-yes --purge build-essential linux-libc-dev \
-    && python3 -m pip install -r requirements.txt
+    && python3 -m pip install -r requirements.txt \
+    && python3 -m pip freeze > /requirements.txt
 
 COPY --from=builder /usr/local/lib/nominatim /usr/local/lib/nominatim
 COPY --from=builder /usr/local/bin/nominatim /usr/local/bin/nominatim
