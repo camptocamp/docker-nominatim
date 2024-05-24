@@ -12,7 +12,8 @@ ENV NOMINATIM_TAR=Nominatim-${NOMINATIM_VERSION}.tar.bz2
 
 # install dependencies
 RUN --mount=type=cache,target=/var/cache,sharing=locked \
-    --mount=type=cache,target=/root/.cache \
+    --mount=type=cache,target=/root/.cache,sharing=locked \
+    --mount=type=cache,target=/var/lib/apt/lists/,sharing=locked \
     DEBIAN_FRONTEND=noninteractive apt-get update -qq \
     && DEBIAN_FRONTEND=noninteractive apt-get upgrade --assume-yes \
     && DEBIAN_FRONTEND=noninteractive apt-get install --no-install-recommends -y build-essential wget bzip2 \
@@ -25,9 +26,7 @@ RUN --mount=type=cache,target=/var/cache,sharing=locked \
         python3-psycopg2 python3-psutil \
         python3-sqlalchemy python3-asyncpg \
         python3-icu python3-datrie python3-yaml python3-jinja2 \
-        python3-pip \
-    && DEBIAN_FRONTEND=noninteractive apt-get clean \
-    && rm -rf /var/lib/apt/lists/
+        python3-pip
 
 # installl python dependencies
 WORKDIR /tmp
@@ -60,7 +59,8 @@ WORKDIR /tmp
 COPY requirements.txt ./
 
 RUN --mount=type=cache,target=/var/cache,sharing=locked \
-    --mount=type=cache,target=/root/.cache \
+    --mount=type=cache,target=/root/.cache,sharing=locked \
+    --mount=type=cache,target=/var/lib/apt/lists/,sharing=locked \
     apt-get update -qq \
     && DEBIAN_FRONTEND=noninteractive apt-get upgrade --assume-yes \
     && DEBIAN_FRONTEND=noninteractive apt-get install --assume-yes --no-install-recommends ca-certificates \
@@ -81,11 +81,10 @@ RUN --mount=type=cache,target=/var/cache,sharing=locked \
         lua-dkjson \
         lua5.3 \
         postgresql-client \
+    && export BOOST_VERSION=$(apt show libboost-all-dev | grep -i version | grep -oP 'Version: \K[0-9]+\.[0-9]+\.[0-9]+') \
     && DEBIAN_FRONTEND=noninteractive apt-get install --assume-yes --no-install-recommends \
-        libboost-system$(apt show libboost-all-dev | grep -i version | grep -oP 'Version: \K[0-9]+\.[0-9]+\.[0-9]+') \
-        libboost-filesystem$(apt show libboost-all-dev | grep -i version | grep -oP 'Version: \K[0-9]+\.[0-9]+\.[0-9]+') \
-    && DEBIAN_FRONTEND=noninteractive apt-get clean \
-    && rm -rf /var/lib/apt/lists/ \
+        libboost-system${BOOST_VERSION} \
+        libboost-filesystem${BOOST_VERSION} \
     && python3 -m pip install -r requirements.txt
 
 COPY --from=builder /usr/local/lib/nominatim /usr/local/lib/nominatim
