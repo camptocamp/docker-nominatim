@@ -20,7 +20,7 @@ pull:
 build:
 	docker build --tag=$(IMAGE_NAME):$(IMAGE_TAG) .
 
-acceptance: #build
+acceptance: build
 	(cd acceptance_tests/ && docker-compose down)
 	(cd acceptance_tests/ && docker-compose up -d --build)
 	(cd acceptance_tests/ && docker compose exec -T nominatim nominatim import --continue import-from-file --osm-file /nominatim/data/liechtenstein-latest.osm.pbf)
