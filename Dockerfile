@@ -53,7 +53,7 @@ RUN cmake /nominatim/Nominatim-${NOMINATIM_VERSION} \
     && make \
     && make install
 
-FROM ubuntu:jammy
+FROM ubuntu:jammy AS runtime
 
 WORKDIR /tmp
 COPY requirements.txt ./
