@@ -92,7 +92,6 @@ RUN --mount=type=cache,target=/var/cache,sharing=locked \
 COPY --from=builder /usr/local/lib/nominatim /usr/local/lib/nominatim
 COPY --from=builder /usr/local/bin/nominatim /usr/local/bin/nominatim
 COPY --from=builder /usr/local/etc/nominatim/ /usr/local/etc/nominatim/
-COPY --from=builder /usr/local/etc/nominatim/ /usr/local/etc/nominatim/
 COPY --from=builder /usr/local/share/man/man1/nominatim.1 /usr/local/share/man/man1/nominatim.1
 COPY --from=builder /usr/local/share/munin/plugins/ /usr/local/share/munin/plugins/
 COPY --from=builder /usr/local/share/nominatim/ /usr/local/share/nominatim/
