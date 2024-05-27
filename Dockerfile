@@ -101,5 +101,5 @@ WORKDIR /usr/local/lib/nominatim/lib-python
 EXPOSE 8080
 
 # FIXME run the application with gunicorn but project the loct to the container logs
-# CMD exec gunicorn -w 4 -k uvicorn.workers.UvicornWorker --bind 127.0.0.1:8080 "nominatim.server.falcon.server:run_wsgi()"
-CMD [ "nominatim", "serve", "--server", "0.0.0.0:8080"]
+CMD exec gunicorn -w 4 -k uvicorn.workers.UvicornWorker --bind 127.0.0.1:8080 "nominatim.server.falcon.server:run_wsgi()"
+#CMD [ "nominatim", "serve", "--server", "0.0.0.0:8080"]
