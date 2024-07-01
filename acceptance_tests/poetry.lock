@@ -58,13 +58,13 @@ files = [
 
 [[package]]
 name = "certifi"
-version = "2024.2.2"
+version = "2024.6.2"
 description = "Python package for providing Mozilla's CA Bundle."
 optional = false
 python-versions = ">=3.6"
 files = [
-    {file = "certifi-2024.2.2-py3-none-any.whl", hash = "sha256:dc383c07b76109f368f6106eee2b593b04a011ea4d55f652c6ca24a754d1cdd1"},
-    {file = "certifi-2024.2.2.tar.gz", hash = "sha256:0569859f95fc761b18b45ef421b1290a0f65f147e92a1e5eb3e635f9a5e4e66f"},
+    {file = "certifi-2024.6.2-py3-none-any.whl", hash = "sha256:ddc6c8ce995e6987e7faf5e3f1b02b302836a0e5d98ece18392cb1a36c72ad56"},
+    {file = "certifi-2024.6.2.tar.gz", hash = "sha256:3cd43f1c6fa7dedc5899d69d3ad0398fd018ad1a17fba83ddaf78aa46c747516"},
 ]
 
 [[package]]
@@ -478,13 +478,13 @@ files = [
 
 [[package]]
 name = "owslib"
-version = "0.30.0"
+version = "0.31.0"
 description = "OGC Web Service utility library"
 optional = false
 python-versions = ">=3.6"
 files = [
-    {file = "OWSLib-0.30.0-py2.py3-none-any.whl", hash = "sha256:88277cf674ded604596af5c04eb2a17c6846dfe8bcfb7a5dc9ab50b3ef5f1385"},
-    {file = "OWSLib-0.30.0.tar.gz", hash = "sha256:f17413cc75836c0303cd1d4fd9bb0f21915a8b492dacc64ef5f4021b28e82d4c"},
+    {file = "OWSLib-0.31.0-py2.py3-none-any.whl", hash = "sha256:ab54d20974bd8ddd24ee5539c46a7829ec9e77ed0976724f635d1a3a321d3a39"},
+    {file = "OWSLib-0.31.0.tar.gz", hash = "sha256:2ed6540087445cc57d905138a590b6ae58624ec7661b5c1682ed4e3303bcd150"},
 ]
 
 [package.dependencies]
@@ -916,4 +916,4 @@ zstd = ["zstandard (>=0.18.0)"]
 [metadata]
 lock-version = "2.0"
 python-versions = ">=3.10,<3.13"
-content-hash = "893fa2cafdf327fa3a6d8a72769e50f87c5b9a4305b7b900a766baa2bf4d4353"
+content-hash = "291757b9470c8a21b910e880ca89d18554b5a39f308f53a2d7f05e782031c5af"
