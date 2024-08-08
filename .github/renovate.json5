@@ -40,6 +40,12 @@
       matchDatasources: ['docker'],
       versioning: 'ubuntu',
     },
+    /** Parse Postgres version version like 12-3.4-alpine */
+    {
+      matchDatasources: ['docker'],
+      matchPackageNames: ['postgres/postgres'],
+      versioning: 'regex:^(?<major>\\d+)-(?<minor>\\d+)\\.(?<patch>\\d+)-(?<compatibility>.+)$',
+    },
     /** Auto merge the dev dependency update */
     {
       matchDepTypes: ['devDependencies'],
