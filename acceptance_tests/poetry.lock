@@ -478,13 +478,13 @@ files = [
 
 [[package]]
 name = "owslib"
-version = "0.30.0"
+version = "0.31.0"
 description = "OGC Web Service utility library"
 optional = false
 python-versions = ">=3.6"
 files = [
-    {file = "OWSLib-0.30.0-py2.py3-none-any.whl", hash = "sha256:88277cf674ded604596af5c04eb2a17c6846dfe8bcfb7a5dc9ab50b3ef5f1385"},
-    {file = "OWSLib-0.30.0.tar.gz", hash = "sha256:f17413cc75836c0303cd1d4fd9bb0f21915a8b492dacc64ef5f4021b28e82d4c"},
+    {file = "OWSLib-0.31.0-py2.py3-none-any.whl", hash = "sha256:ab54d20974bd8ddd24ee5539c46a7829ec9e77ed0976724f635d1a3a321d3a39"},
+    {file = "OWSLib-0.31.0.tar.gz", hash = "sha256:2ed6540087445cc57d905138a590b6ae58624ec7661b5c1682ed4e3303bcd150"},
 ]
 
 [package.dependencies]
@@ -619,13 +619,13 @@ testing = ["pytest", "pytest-benchmark"]
 
 [[package]]
 name = "pytest"
-version = "8.2.0"
+version = "8.3.2"
 description = "pytest: simple powerful testing with Python"
 optional = false
 python-versions = ">=3.8"
 files = [
-    {file = "pytest-8.2.0-py3-none-any.whl", hash = "sha256:1733f0620f6cda4095bbf0d9ff8022486e91892245bb9e7d5542c018f612f233"},
-    {file = "pytest-8.2.0.tar.gz", hash = "sha256:d507d4482197eac0ba2bae2e9babf0672eb333017bcedaa5fb1a3d42c1174b3f"},
+    {file = "pytest-8.3.2-py3-none-any.whl", hash = "sha256:4ba08f9ae7dcf84ded419494d229b48d0903ea6407b030eaec46df5e6a73bba5"},
+    {file = "pytest-8.3.2.tar.gz", hash = "sha256:c132345d12ce551242c87269de812483f5bcc87cdbb4722e48487ba194f9fdce"},
 ]
 
 [package.dependencies]
@@ -633,7 +633,7 @@ colorama = {version = "*", markers = "sys_platform == \"win32\""}
 exceptiongroup = {version = ">=1.0.0rc8", markers = "python_version < \"3.11\""}
 iniconfig = "*"
 packaging = "*"
-pluggy = ">=1.5,<2.0"
+pluggy = ">=1.5,<2"
 tomli = {version = ">=1", markers = "python_version < \"3.11\""}
 
 [package.extras]
@@ -916,4 +916,4 @@ zstd = ["zstandard (>=0.18.0)"]
 [metadata]
 lock-version = "2.0"
 python-versions = ">=3.10,<3.13"
-content-hash = "f8b73676dc5e6b9c2aabe799954a69d974a096e63b09bb7f09af0300daf1d507"
+content-hash = "1547176a4c3d39f4aefaadd00d3f1c980647b651db936f71e683c3d46dc2b95e"
