@@ -1,6 +1,6 @@
 services:
     db:
-        image: postgis/postgis:15-3.4-alpine
+        image: postgis/postgis:17beta3-master
         volumes:
             - './resources/init-scripts:/docker-entrypoint-initdb.d:ro'
         environment:
