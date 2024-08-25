@@ -35,6 +35,12 @@
       matchDatasources: ['docker'],
       versioning: 'loose',
     },
+    /** PostGis versioning */
+    {
+      matchDatasources: ['docker'],
+      matchDepNames: ['postgis/postgis'],
+      versioning: 'regex:^(?<major>\\d+)-(?<minor>\\d+)\\.(?<patch>\\d+)-(?<compatibility>.*)$',
+    },
     {
       matchFiles: ['acceptance_tests/Dockerfile'],
       matchDatasources: ['docker'],
