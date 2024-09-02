@@ -28,7 +28,7 @@ RUN --mount=type=cache,target=/var/cache,sharing=locked \
         python3-icu python3-datrie python3-yaml python3-jinja2 \
         python3-pip
 
-# installl python dependencies
+# install python dependencies
 WORKDIR /tmp
 COPY requirements.txt ./
 RUN python3 -m pip install -r requirements.txt
