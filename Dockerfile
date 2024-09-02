@@ -26,7 +26,10 @@ RUN --mount=type=cache,target=/var/cache,sharing=locked \
         python3-psycopg2 python3-psutil \
         python3-sqlalchemy python3-asyncpg \
         python3-icu python3-datrie python3-yaml python3-jinja2 \
-        python3-pip
+        python3-pip python3-venv \
+    && python3 -m venv /venv
+
+ENV PATH=/venv/bin:$PATH
 
 # installl python dependencies
 WORKDIR /tmp
