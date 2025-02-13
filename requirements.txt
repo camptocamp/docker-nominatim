@@ -1,6 +1,6 @@
 asyncpg==0.25.0
 Babel==2.9.1
-click==8.1.7
+click==8.1.8
 datrie==0.8.2
 falcon==4.0.2
 greenlet==3.0.3
