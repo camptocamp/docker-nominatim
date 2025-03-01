@@ -9,7 +9,7 @@ h11==0.14.0
 Jinja2==3.1.5
 MarkupSafe==3.0.2
 packaging==24.0
-psutil==6.0.0
+psutil==7.0.0
 psycopg==3.1.19
 psycopg2==2.9.2
 PyICU==2.8.1
