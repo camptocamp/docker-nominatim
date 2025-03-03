@@ -50,14 +50,14 @@ camptocamp/nominatim:latest:
   ubuntu_22_04/libgmp10: 2:6.2.1+dfsg-3ubuntu1
   ubuntu_22_04/libgnutls30: 3.7.3-4ubuntu1.6
   ubuntu_22_04/libgpg-error0: 1.43-3
-  ubuntu_22_04/libgssapi-krb5-2: 1.19.2-2ubuntu0.5
+  ubuntu_22_04/libgssapi-krb5-2: 1.19.2-2ubuntu0.6
   ubuntu_22_04/libhogweed6: 3.7.3-1build2
   ubuntu_22_04/libicu70: 70.1-2
   ubuntu_22_04/libidn2-0: 2.3.2-2build1
-  ubuntu_22_04/libk5crypto3: 1.19.2-2ubuntu0.5
+  ubuntu_22_04/libk5crypto3: 1.19.2-2ubuntu0.6
   ubuntu_22_04/libkeyutils1: 1.6.1-2ubuntu3
-  ubuntu_22_04/libkrb5-3: 1.19.2-2ubuntu0.5
-  ubuntu_22_04/libkrb5support0: 1.19.2-2ubuntu0.5
+  ubuntu_22_04/libkrb5-3: 1.19.2-2ubuntu0.6
+  ubuntu_22_04/libkrb5support0: 1.19.2-2ubuntu0.6
   ubuntu_22_04/libldap-2.5-0: 2.5.18+dfsg-0ubuntu0.22.04.3
   ubuntu_22_04/liblua5.3-0: 5.3.6-1build1
   ubuntu_22_04/liblua5.3-0-dbg: 5.3.6-1build1
@@ -78,7 +78,7 @@ camptocamp/nominatim:latest:
   ubuntu_22_04/libpcre2-8-0: 10.39-3ubuntu0.1
   ubuntu_22_04/libpcre3: 2:8.39-13ubuntu0.22.04.1
   ubuntu_22_04/libperl5.34: 5.34.0-3ubuntu1.3
-  ubuntu_22_04/libpq5: 14.15-0ubuntu0.22.04.1
+  ubuntu_22_04/libpq5: 14.17-0ubuntu0.22.04.1
   ubuntu_22_04/libprocps8: 2:3.3.17-6ubuntu2.1
   ubuntu_22_04/libpython3-stdlib: 3.10.6-1~22.04.1
   ubuntu_22_04/libpython3.10-minimal: 3.10.12-1~22.04.9
@@ -125,7 +125,7 @@ camptocamp/nominatim:latest:
   ubuntu_22_04/perl-base: 5.34.0-3ubuntu1.3
   ubuntu_22_04/perl-modules-5.34: 5.34.0-3ubuntu1.3
   ubuntu_22_04/postgresql-client: 14+238
-  ubuntu_22_04/postgresql-client-14: 14.15-0ubuntu0.22.04.1
+  ubuntu_22_04/postgresql-client-14: 14.17-0ubuntu0.22.04.1
   ubuntu_22_04/postgresql-client-common: '238'
   ubuntu_22_04/procps: 2:3.3.17-6ubuntu2.1
   ubuntu_22_04/python-babel-localedata: 2.8.0+dfsg.1-7
