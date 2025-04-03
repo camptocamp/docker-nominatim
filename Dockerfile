@@ -2,7 +2,7 @@
 # and https://nominatim.org/release-docs/develop/appendix/Install-on-Ubuntu-22/
 
 FROM ubuntu:jammy AS builder
-LABEL maintainer Camptocamp "info@camptocamp.com"
+LABEL org.opencontainers.image.authors="Camptocamp <info@camptocamp.com>"
 SHELL ["/bin/bash", "-o", "pipefail", "-cux"]
 
 # avoid interactive installation for tzdata
