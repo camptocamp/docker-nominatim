@@ -5,7 +5,7 @@ datrie==0.8.2
 falcon==4.0.2
 greenlet==3.0.3
 gunicorn==23.0.0
-h11==0.14.0
+h11==0.16.0
 Jinja2==3.1.6
 MarkupSafe==3.0.2
 packaging==24.0
