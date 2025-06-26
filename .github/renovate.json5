@@ -2,14 +2,14 @@
   extends: [
     'github>camptocamp/gs-renovate-config-preset:base.json5#1.2.3',
     'github>camptocamp/gs-renovate-config-preset:group.json5#1.2.3',
-    'github>camptocamp/gs-renovate-config-preset:stabilization-branches.json5#1.2.3',
     'github>camptocamp/gs-renovate-config-preset:ci.json5#1.2.3',
     'github>camptocamp/gs-renovate-config-preset:preset.json5#1.2.3',
     'github>camptocamp/gs-renovate-config-preset:pre-commit.json5#1.2.3',
     'github>camptocamp/gs-renovate-config-preset:docker.json5#1.2.3',
-    'github>camptocamp/gs-renovate-config-preset:own.json5#1.2.3',
     'github>camptocamp/gs-renovate-config-preset:json-schema.json5#1.2.3',
     'github>camptocamp/gs-renovate-config-preset:shellcheck.json5#1.2.3',
+    'github>camptocamp/gs-renovate-config-preset:stabilization-branches.json5#1.2.3',
+    'github>camptocamp/gs-renovate-config-preset:own.json5#1.2.3',
   ],
   baseBranches: ['master', '4.4.0'],
   packageRules: [
@@ -34,12 +34,6 @@
       matchDatasources: ['docker'],
       matchPackageNames: ['postgres/postgres'],
       versioning: 'regex:^(?<major>\\d+)-(?<minor>\\d+)\\.(?<patch>\\d+)-(?<compatibility>.+)$',
-    },
-    /** Accept only the patch on stabilization branches */
-    {
-      matchBaseBranches: ['/^[0-9]+\\.[0-9]+$/'],
-      matchUpdateTypes: ['major', 'minor', 'pin', 'digest', 'lockFileMaintenance', 'rollback', 'bump'],
-      enabled: false,
     },
     {
       matchBaseBranches: ['/^[0-9]+\\.[0-9]+\\.[0-9]+$/'],
