@@ -11,11 +11,11 @@ MarkupSafe==2.0.1
 packaging==24.0
 psutil==6.0.0
 psycopg==3.1.19
-psycopg2==2.9.2
+psycopg2==2.9.10
 PyICU==2.8.1
 python-dotenv==1.0.1
 pytz==2024.1
 PyYAML==6.0.2
-SQLAlchemy==2.0.25
+SQLAlchemy==2.0.42
 typing_extensions==4.11.0
 uvicorn==0.29.0
