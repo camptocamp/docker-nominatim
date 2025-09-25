@@ -11,7 +11,7 @@ camptocamp/nominatim:latest:
   ubuntu_22_04/debianutils: 5.5-1ubuntu2
   ubuntu_22_04/diffutils: 1:3.8-0ubuntu2
   ubuntu_22_04/dotenv: 0.15.0-2build1
-  ubuntu_22_04/dpkg: 1.21.1ubuntu2.3
+  ubuntu_22_04/dpkg: 1.21.1ubuntu2.6
   ubuntu_22_04/e2fsprogs: 1.46.5-2ubuntu1.2
   ubuntu_22_04/findutils: 4.8.0-1ubuntu3
   ubuntu_22_04/gcc-12-base: 12.3.0-1ubuntu1~22.04.2
