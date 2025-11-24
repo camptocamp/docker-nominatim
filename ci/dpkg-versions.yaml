@@ -81,8 +81,8 @@ camptocamp/nominatim:latest:
   ubuntu_22_04/libpq5: 14.19-0ubuntu0.22.04.1
   ubuntu_22_04/libprocps8: 2:3.3.17-6ubuntu2.1
   ubuntu_22_04/libpython3-stdlib: 3.10.6-1~22.04.1
-  ubuntu_22_04/libpython3.10-minimal: 3.10.12-1~22.04.11
-  ubuntu_22_04/libpython3.10-stdlib: 3.10.12-1~22.04.11
+  ubuntu_22_04/libpython3.10-minimal: 3.10.12-1~22.04.12
+  ubuntu_22_04/libpython3.10-stdlib: 3.10.12-1~22.04.12
   ubuntu_22_04/libreadline8: 8.1.2-1
   ubuntu_22_04/libsasl2-2: 2.1.27+dfsg2-3ubuntu1.2
   ubuntu_22_04/libsasl2-modules-db: 2.1.27+dfsg2-3ubuntu1.2
@@ -149,8 +149,8 @@ camptocamp/nominatim:latest:
   ubuntu_22_04/python3-tz: 2022.1-1ubuntu0.22.04.1
   ubuntu_22_04/python3-wheel: 0.37.1-2ubuntu0.22.04.1
   ubuntu_22_04/python3-yaml: 5.4.1-1ubuntu1
-  ubuntu_22_04/python3.10: 3.10.12-1~22.04.11
-  ubuntu_22_04/python3.10-minimal: 3.10.12-1~22.04.11
+  ubuntu_22_04/python3.10: 3.10.12-1~22.04.12
+  ubuntu_22_04/python3.10-minimal: 3.10.12-1~22.04.12
   ubuntu_22_04/readline-common: 8.1.2-1
   ubuntu_22_04/rpcsvc-proto: 1.4.2-0ubuntu6
   ubuntu_22_04/sed: 4.8-1ubuntu2
