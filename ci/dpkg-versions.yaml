@@ -29,9 +29,9 @@ camptocamp/nominatim:latest:
   ubuntu_22_04/libboost-filesystem1.74.0: 1.74.0-14ubuntu3
   ubuntu_22_04/libboost-system1.74.0: 1.74.0-14ubuntu3
   ubuntu_22_04/libbz2-1.0: 1.0.8-5build1
-  ubuntu_22_04/libc-bin: 2.35-0ubuntu3.11
-  ubuntu_22_04/libc-dev-bin: 2.35-0ubuntu3.11
-  ubuntu_22_04/libc6: 2.35-0ubuntu3.11
+  ubuntu_22_04/libc-bin: 2.35-0ubuntu3.13
+  ubuntu_22_04/libc-dev-bin: 2.35-0ubuntu3.13
+  ubuntu_22_04/libc6: 2.35-0ubuntu3.13
   ubuntu_22_04/libcap-ng0: 0.7.9-2.2build3
   ubuntu_22_04/libcap2: 1:2.44-1ubuntu0.22.04.2
   ubuntu_22_04/libcom-err2: 1.46.5-2ubuntu1.2
