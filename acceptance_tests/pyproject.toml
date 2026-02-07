@@ -23,12 +23,12 @@ description = 'Not used'
 authors = []
 
 [tool.poetry.dependencies]
-python = ">=3.10,<3.13"
-pytest = "9.0.1"
+python = ">=3.14,<3.15"
+pytest = "9.0.2"
 c2cwsgiutils = "6.1.9"
 boltons = "25.0.0"
 netifaces = "0.11.0"
-requests = "2.32.4"
-lxml = "6.0.0"
+requests = "2.32.5"
+lxml = "6.0.2"
 certifi = "2026.1.4"
-OWSLib = "0.30.0"
+OWSLib = "0.35.0"
