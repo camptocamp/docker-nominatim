@@ -19,17 +19,21 @@ repos:
       - id: trailing-whitespace
       - id: mixed-line-ending
   - repo: https://github.com/sbrunner/hooks
-    rev: 1.0.0
+    rev: 1.9.0
     hooks:
       - id: copyright
       - id: poetry-check
         additional_dependencies:
           - poetry==1.8.5 # pypi
-        exclude: ^pyproject.toml$
+        exclude: ^(|.*/)pyproject\.toml$
       - id: poetry-lock
         additional_dependencies:
           - poetry==1.8.5 # pypi
-        exclude: ^pyproject.toml$
+        exclude: ^(|.*/)pyproject\.toml$
+      - id: uv-lock
+        additional_dependencies:
+          - uv==0.12.20 # pypi
+        files: .github/publish/pyproject.toml
   - repo: https://github.com/codespell-project/codespell
     rev: v2.2.6
     hooks:

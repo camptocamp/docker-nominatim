@@ -10,8 +10,7 @@ on:
   pull_request:
 
 permissions:
-  contents: write
-  packages: write
+  contents: read
 
 env:
   HAS_SECRETS: ${{ secrets.HAS_SECRETS }}
@@ -23,11 +22,14 @@ jobs:
     timeout-minutes: 40
     if: "!startsWith(github.event.head_commit.message, '[skip ci] ')"
 
+    outputs:
+      success: ${{ steps.success.outputs.success }}
+
     steps:
       # Versions
       - run: docker system prune --all --force
       - run: docker --version
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4.4.0
 
       - uses: actions/setup-python@5fda3b95a4ea91299a34e894583c3862153e4b97 # v7.0.0
         with:
@@ -36,7 +38,7 @@ jobs:
       - run: echo "${HOME}/.local/bin" >> ${GITHUB_PATH}
       - run: python3 -m pip install --user --requirement=ci/requirements.txt
 
-      - uses: actions/cache@v4
+      - uses: actions/cache@0057852bfaa89a56745cba8c7296529d2fc39830 # v4.3.0
         with:
           path: ~/.cache/pre-commit
           key: pre-commit-${{ hashFiles('.pre-commit-config.yaml') }}
@@ -44,7 +46,7 @@ jobs:
       - run: pre-commit run --all-files
       - run: git diff --exit-code --patch > /tmp/pre-commit.patch || true
         if: failure()
-      - uses: actions/upload-artifact@v4
+      - uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4.6.2
         with:
           name: Apply pre-commit fix.patch
           path: /tmp/pre-commit.patch
@@ -59,14 +61,55 @@ jobs:
       - run: (cd acceptance_tests && c2cciutils-docker-logs)
         if: always()
 
+      # The image is given to the publishing job, which is the only one with the write permissions.
+      - run: docker save --output=/tmp/images.docker camptocamp/nominatim:latest
+      - uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4.6.2
+        with:
+          name: images.docker
+          path: /tmp/images.docker
+          retention-days: 1
+
+      # Mark as success
+      - id: success
+        run: echo "success=true" >> $GITHUB_OUTPUT
+
+  publish:
+    name: Publish
+    runs-on: ubuntu-22.04
+    timeout-minutes: 40
+    needs: main
+    if: always()
+
+    permissions:
+      contents: read
+      packages: write
+
+    steps:
+      - run: '[[ "${{ needs.main.outputs.success }}" == "true" ]]'
+
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4.4.0
+
+      - uses: astral-sh/setup-uv@c18668ad3cf93ea998bef934396af7bb5c839dc7 # v10.2.0
+        with:
+          version: latest-known
+          cache-python: true
+          python-version: '3.11'
+
+      - uses: actions/download-artifact@d3f86a106a0bac45b974a628896c90dbdf5c8093 # v4.3.0
+        with:
+          name: images.docker
+          path: /tmp/
+      - run: docker load --input=/tmp/images.docker
+
       - name: Publish
-        run: tag-publish
+        run: uv run --locked --isolated --project=.github/publish tag-publish
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         if: env.HAS_SECRETS == 'HAS_SECRETS'
+
       - run: git diff --exit-code --patch > /tmp/dpkg-versions.patch || true
         if: failure()
-      - uses: actions/upload-artifact@v4
+      - uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4.6.2
         with:
           name: Update dpkg versions list.patch
           path: /tmp/dpkg-versions.patch
