@@ -25,12 +25,12 @@ repos:
       - id: poetry2-lock
         additional_dependencies:
           - poetry==2.4.1 # pypi
-        exclude: ^(|.*/)pyproject\.toml$
+        exclude: ^(pyproject\.toml|\.github/publish/pyproject\.toml)$
       - id: canonicalize
       - id: uv-lock
         additional_dependencies:
           - uv==0.12.20 # pypi
-        files: .github/publish/pyproject.toml
+        files: ^\.github/publish/pyproject\.toml$
   - repo: https://github.com/codespell-project/codespell
     rev: v2.4.3
     hooks:
