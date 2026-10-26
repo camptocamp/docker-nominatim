@@ -5,6 +5,3 @@ docker:
     - name: camptocamp/nominatim
       tags:
         - '{version}'
-
-dispatch:
-  - {}
