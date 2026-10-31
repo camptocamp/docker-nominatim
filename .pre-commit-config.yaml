@@ -24,12 +24,12 @@ repos:
       - id: copyright
       - id: poetry2-lock
         additional_dependencies:
-          - poetry==2.4.1 # pypi
+          - poetry==2.5.1 # pypi
         exclude: ^(pyproject\.toml|\.github/publish/pyproject\.toml)$
       - id: canonicalize
       - id: uv-lock
         additional_dependencies:
-          - uv==0.12.20 # pypi
+          - uv==0.13.5 # pypi
         files: ^\.github/publish/pyproject\.toml$
   - repo: https://github.com/codespell-project/codespell
     rev: v2.4.3
@@ -49,7 +49,7 @@ repos:
     hooks:
       - id: git-check
   - repo: https://github.com/python-jsonschema/check-jsonschema
-    rev: 0.37.4
+    rev: 0.38.2
     hooks:
       - id: check-github-actions
       - id: check-github-workflows
@@ -66,21 +66,21 @@ repos:
     hooks:
       - id: ripsecrets
   - repo: https://github.com/PyCQA/autoflake
-    rev: v2.3.3
+    rev: v2.4.0
     hooks:
       - id: autoflake
   - repo: https://github.com/asottile/pyupgrade
-    rev: v3.21.2
+    rev: v3.22.0
     hooks:
       - id: pyupgrade
         args:
           - --py39-plus
   - repo: https://github.com/PyCQA/isort
-    rev: 9.0.1
+    rev: 9.0.2
     hooks:
       - id: isort
   - repo: https://github.com/psf/black
-    rev: 26.5.1
+    rev: 26.10.1
     hooks:
       - id: black
   - repo: https://github.com/sbrunner/jsonschema-validator
@@ -93,6 +93,6 @@ repos:
             |\.github/publish\.yaml
           )$
   - repo: https://github.com/renovatebot/pre-commit-hooks
-    rev: 44.40.0
+    rev: 44.181.1
     hooks:
       - id: renovate-config-validator
