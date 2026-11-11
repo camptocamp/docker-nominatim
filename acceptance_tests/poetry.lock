@@ -2,13 +2,13 @@
 
 [[package]]
 name = "boltons"
-version = "25.0.0"
+version = "26.2.0"
 description = "When they're not builtins, they're boltons."
 optional = false
 python-versions = ">=3.7"
 files = [
-    {file = "boltons-25.0.0-py3-none-any.whl", hash = "sha256:dc9fb38bf28985715497d1b54d00b62ea866eca3938938ea9043e254a3a6ca62"},
-    {file = "boltons-25.0.0.tar.gz", hash = "sha256:e110fbdc30b7b9868cb604e3f71d4722dd8f4dcb4a5ddd06028ba8f1ab0b5ace"},
+    {file = "boltons-26.2.0-py3-none-any.whl", hash = "sha256:41942cbce440211bbcf2487ccdc356964ad674f95a01068b8a0dd7a1d1fed036"},
+    {file = "boltons-26.2.0.tar.gz", hash = "sha256:d39cfd15c1a1c3bd4d705c82252fa9edb8e4f5e8cc039f8e39afac7b1b47e92c"},
 ]
 
 [[package]]
@@ -1053,4 +1053,4 @@ zstd = ["backports-zstd (>=1.0.0)"]
 [metadata]
 lock-version = "2.0"
 python-versions = ">=3.10,<3.13"
-content-hash = "5be907485cbd2f0a5ee95920e2c6c4d86b1d63744fd70a127e75cd3b60d7fc03"
+content-hash = "20a76748ab7858dae695a2f0f6e93fa7956762c33f7d4b195e457977528301ad"
