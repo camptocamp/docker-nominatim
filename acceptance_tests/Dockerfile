@@ -46,3 +46,7 @@ COPY . ./
 CMD ["tail", "-f", "/dev/null"]
 
 ENV C2C_REQUESTS_DEFAULT_TIMEOUT=10
+
+# Run as the www-data user instead of root (Trivy DS-0002)
+RUN chown --recursive www-data:www-data /acceptance_tests
+USER www-data
